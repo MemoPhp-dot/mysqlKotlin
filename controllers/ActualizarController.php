@@ -31,6 +31,7 @@ if (isset($_GET['id'])) {
 
 // Verificar si se recibió una solicitud POST o PUT para la actualización
 if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'PUT') {
+    date_default_timezone_set('America/Mexico_City');
     // Obtener los datos del cuerpo de la solicitud (JSON)
     $input = json_decode(file_get_contents('php://input'), true);
 
