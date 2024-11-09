@@ -7,12 +7,9 @@ $response = ['status' => false, 'data' => null];
 
 // Verificar si el método de solicitud es DELETE
 if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
-    // Obtener los datos de la solicitud (JSON)
-    $input = json_decode(file_get_contents('php://input'), true);
-
-    // Verificar si se recibió el ID
-    if (isset($input['id'])) {
-        $id = $input['id'];
+    // Obtener el ID desde la URL
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
 
         // Consulta SQL para eliminar el contacto por ID
         $sql = "DELETE FROM contactos WHERE id = '$id'";
